@@ -1,0 +1,32 @@
+.bodycontaner {
+    font-size: 2rem;
+    height: calc(100vh - 113px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagecenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-color{
+    background-color: #184FBA;
+}
+
+.van-nav-bar__title {
+    color: white;
+}
+
+body {
+    font-family: Roboto,Lato,sans-serif;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    background-color: #fafafa;
+    color: rgba(0,0,0,.87);
+}
