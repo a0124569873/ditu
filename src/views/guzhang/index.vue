@@ -1,9 +1,9 @@
 <template>
     <div>
-        <van-nav-bar title="故障列表" class="title-color">
+        <van-nav-bar title="首页" class="title-color">
         </van-nav-bar>
 
-        <van-tabs v-model="active">
+        <!-- <van-tabs v-model="active">
             <van-tab :title="'未处理故障[' + undealList.length + ']'">
                 <van-list
                 v-if="true" 
@@ -32,7 +32,7 @@
                     </van-cell>
                 </van-list>
             </van-tab>
-        </van-tabs>
+        </van-tabs> -->
 
         <!-- <van-nav-bar @click-right="switchpop" class="pagesize">
             <div slot="right">
@@ -67,7 +67,7 @@
 
 <script>
 
-import deviceitem from './deviceitem'
+// import deviceitem from './deviceitem'
 import * as data from '../data' 
 import errcode from '../websocket/errcode'
 import config from '../config'
@@ -75,7 +75,7 @@ import config from '../config'
 export default {
 
     components: {
-        deviceitem
+        // deviceitem
     },
 
     data(){

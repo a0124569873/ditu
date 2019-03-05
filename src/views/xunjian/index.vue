@@ -1,10 +1,12 @@
 <template>
     <div class="bodycontaner1">
         <div>
-            <van-nav-bar title="巡检列表" class="title-color">
+            <van-nav-bar title="定位" class="title-color">
             </van-nav-bar>
 
             <el-amap vid="amapDemo" class="zxndemo">
+                <el-amap-marker v-for="marker in locations" :position="marker.position">
+                </el-amap-marker>
             </el-amap>
 
             <bottom-bar></bottom-bar>
@@ -31,12 +33,28 @@ export default {
                 "name",
                 "sectionCode",
                 "sectionName",
-            ]
+            ],
+            locations: []
         }  
     },
 
     mounted(){
+        let _this = this
+        var bMap = api.require('bMap');
+        bMap.getLocation({
+            accuracy: '10m',
+            autoStop: true,
+            filter: 1
+        }, function(ret, err) {
+            if (ret.status) {
+                _this.$toast(JSON.stringify(ret));
+                _this.locations.push({position: [ret.lon, ret.lat]})
+                // _this.$toast(JSON.stringify(ret));
 
+            } else {
+                alert(err.code);
+            }
+        });
     },
 
     methods: {

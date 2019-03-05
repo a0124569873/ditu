@@ -6,7 +6,7 @@ let wsbaseurl = "ws://47.105.40.29:18888/"
 let config = {
     imguploaddomain : "http://10.168.5.241:8888/gateway/uploadBaseFile",
     imgdomain : "http://images.ccgthi.com/",
-    apibaseurl : "http://47.105.40.29:18880/hjzk/",
+    apibaseurl : "http://172.96.203.234:8080",
     wsbaseurl : "ws://47.105.40.29:18888/",
     hjcloudapiurl: 'http://10.168.5.210:8888/alarm/'
 }

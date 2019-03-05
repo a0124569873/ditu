@@ -11,8 +11,8 @@
         </router-view>
 
         <van-tabbar v-model="active" style="background-color: #F7F8F7;" active-color="#184FBA">
-                <van-tabbar-item icon="fire" to="guzhang" :replace=true :dot="true">故障</van-tabbar-item>
-                <van-tabbar-item icon="cart" to="xunjian" :replace=true >巡检</van-tabbar-item>
+                <van-tabbar-item icon="fire" to="guzhang" :replace=true :dot="true">首页</van-tabbar-item>
+                <van-tabbar-item icon="cart" to="xunjian" :replace=true >定位</van-tabbar-item>
                 <van-tabbar-item icon="friends" to="wode" :replace=true >我的</van-tabbar-item>
         </van-tabbar>
         

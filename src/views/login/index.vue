@@ -38,19 +38,25 @@
     </div>
 </template>
 <script>
+
+import dituService from '../../services/ditu'
+
 export default {
 
     data(){
         return {
             formdata: {
-                username: '',
-                password: ''
+                username: '13111111111',
+                password: '123456'
             }
         }
     },
 
     methods: {
         login(){
+            // dituService.login({username: this.formdata.username, password: this.formdata.password}).then(res => {
+            //     alert(res)
+            // })
             this.$router.push("xunjian")
         },
     }
