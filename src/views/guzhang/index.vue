@@ -102,19 +102,19 @@ export default {
 
     watch: {
 
-        active(newval, oldval){
-            this.switchTab(newval)
-        },
+        // active(newval, oldval){
+        //     this.switchTab(newval)
+        // },
         
-        currentPage(n, o){
-            this.pageChange(n)
-        }
+        // currentPage(n, o){
+        //     this.pageChange(n)
+        // }
     },
 
     mounted(){
 
-        this.getUndeal()
-        this.getDeal()
+        // this.getUndeal()
+        // this.getDeal()
         
     },
 

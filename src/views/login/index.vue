@@ -54,10 +54,19 @@ export default {
 
     methods: {
         login(){
-            // dituService.login({username: this.formdata.username, password: this.formdata.password}).then(res => {
-            //     alert(res)
-            // })
-            this.$router.push("xunjian")
+
+            let _this = this
+
+            dituService.login({username: this.formdata.username, password: this.formdata.password}).then(res => {
+
+                if (res.code == 2) {
+                    _this.$router.push("/main/xunjian")
+                }else{
+                    _this.$toast(res.msg)
+                }
+                
+            })
+            
         },
     }
 }

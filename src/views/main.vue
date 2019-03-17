@@ -23,6 +23,8 @@
 
 import websocket from './websocket'
 
+import dituService from '../services/ditu'
+
 export default {
 
     components: {
@@ -43,10 +45,26 @@ export default {
     },
 
     mounted (){
-        this.$router.push("xunjian")
+        setInterval(this.uploadposition, 2000)
     },
 
     methods: {
+
+        uploadposition(){
+            let _this = this
+            if ((typeof api) != undefined) {
+                var bMap = api.require('aMap');
+                bMap.getLocation( function(ret, err) {
+                    if (ret.status) {
+                        dituService.location({longitude: ret.lon,latitude: ret.lat}).then(res => {
+                            
+                        })
+                    } else {
+                        _this.$toast(err.code);
+                    }
+                });
+            }
+        },
 
         switchpage(newval){
             

@@ -23,14 +23,14 @@
             </van-col>
         </van-row>
 
-        <van-nav-bar style="margin: 5px 0px;">
+        <!-- <van-nav-bar style="margin: 5px 0px;">
             <div slot="left">
                 我的上报
             </div>
             <div slot="right">
                 <van-icon name="arrow" size="40px" @click="$router.push('shoudong_list')"></van-icon>
             </div>
-        </van-nav-bar>
+        </van-nav-bar> -->
 
         <!-- <van-nav-bar style="margin: 5px 0px;">
             <div slot="left">
@@ -49,14 +49,14 @@
                 <van-icon name="arrow" size="40px" @click="denglu"></van-icon>
             </div>
         </van-nav-bar>
-        <van-nav-bar style="margin: 5px 0px;">
+        <!-- <van-nav-bar style="margin: 5px 0px;">
             <div slot="left">
                 告警记录
             </div>
             <div slot="right">
                 <van-icon name="arrow" size="40px" @click="$router.push('warning')"></van-icon>
             </div>
-        </van-nav-bar>
+        </van-nav-bar> -->
 
         <!-- <van-button @click="test">
             测试按钮

@@ -3,6 +3,15 @@
         <div>
             <van-nav-bar title="定位" class="title-color">
             </van-nav-bar>
+            <van-search
+                v-model="searchvalue"
+                placeholder="请输入搜索关键词"
+                show-action
+                shape="round"
+                @search="onSearch"
+                >
+                <div slot="action" @click="onSearch">搜索</div>
+            </van-search>
 
             <el-amap vid="amapDemo" class="zxndemo">
                 <el-amap-marker v-for="marker in locations" :position="marker.position">
@@ -21,6 +30,8 @@
 
 import { listobj, scan } from '../data'
 
+import dituService from '../../services/ditu'
+
 
 export default {
 
@@ -34,30 +45,45 @@ export default {
                 "sectionCode",
                 "sectionName",
             ],
-            locations: []
+            locations: [],
+            searchvalue: ''
         }  
     },
 
     mounted(){
-        let _this = this
-        var bMap = api.require('bMap');
-        bMap.getLocation({
-            accuracy: '10m',
-            autoStop: true,
-            filter: 1
-        }, function(ret, err) {
-            if (ret.status) {
-                _this.$toast(JSON.stringify(ret));
-                _this.locations.push({position: [ret.lon, ret.lat]})
-                // _this.$toast(JSON.stringify(ret));
-
-            } else {
-                alert(err.code);
-            }
-        });
+        this.getposition()
     },
 
     methods: {
+
+        getposition(){
+            let _this = this
+            if ((typeof api) != undefined) {
+                var bMap = api.require('aMap');
+                bMap.getLocation( function(ret, err) {
+                    if (ret.status) {
+                        _this.locations.push({position: [ret.lon, ret.lat], name : "我的位置"})
+                    } else {
+                        _this.$toast(err.code);
+                    }
+                });
+            }
+        },
+
+        onSearch(){
+            let _this = this
+            _this.locations = []
+            _this.getposition()
+            dituService.search({key: _this.searchvalue}).then(res => {
+                if (res.code == 2) {
+
+                    res.data.map(item => {
+                        _this.locations.push({position: [item.longitude, item.latitude], name: item.name})
+                    })
+
+                }
+            })
+        },
 
         test(){
             
@@ -178,7 +204,7 @@ export default {
 
 .zxndemo {
     //   height: 100%;
-      height: calc(100vh - 113px);
+      height: calc(100vh - 146px);
 }
 
 </style>
